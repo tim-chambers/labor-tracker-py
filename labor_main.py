@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAc
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtCore import pyqtSlot, QTimer, QTime
 
-class LaborTracker(QMainWindow, labordialog2.Ui_MainWindow):
+class LaborTracker(QMainWindow, labordialog.Ui_MainWindow):
 
 	def __init__(self, parent=None):
 
