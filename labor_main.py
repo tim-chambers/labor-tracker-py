@@ -4,7 +4,7 @@ import os
 import pyodbc
 import PyQt5
 import datetime
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QLineEdit, QMessageBox, QLCDNumber
+from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QLineEdit, QMessageBox, QLCDNumber, QGridLayout, QDesktopWidget
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtCore import pyqtSlot, QTimer, QTime
 
@@ -14,6 +14,13 @@ class LaborTracker(QMainWindow, labordialog.Ui_MainWindow):
 
 		super(LaborTracker, self).__init__(parent)
 		self.setupUi(self)
+
+		# Code for sizing the program and centering it on screen.
+		qtRectangle = self.frameGeometry()
+		print(qtRectangle)
+		centerPoint = QDesktopWidget().availableGeometry().center()
+		qtRectangle.moveCenter(centerPoint)
+		self.move(qtRectangle.topLeft())
 
 		# Set focus to first textbox on load, so the WOID can be scanned.
 		self.txtEID.setFocus()
